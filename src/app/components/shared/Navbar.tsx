@@ -3,6 +3,7 @@ import Link from "next/link";
 import Logo from "@/acess/logo.webp"
 import NavItems from "./NavItems";
 import Marquree from "./Marquree";
+import UserInfo from "./UserInfo";
 
 
 const Navbar = () => {
@@ -23,8 +24,7 @@ const Navbar = () => {
                         </div>
                     </Link>
                     <div className="flex gap-3 items-center justify-end absolute top-6 right-0">
-                        <Link href="">সাইন ইন</Link>
-                        <Link href=""><button className="btn bg-[#c10007] text-white rounded">সাইন আপ</button></Link>
+                        <UserInfo />
                     </div>
                 </div>
             </div>

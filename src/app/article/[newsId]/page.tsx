@@ -1,5 +1,7 @@
+import NotFoundPage from "@/app/not-found";
 import { SingleNews } from "@/lib/AllApi";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 
 const NewsDetailsPage = async ({ params }: { params: Promise<{ newsId: string }> }) => {
@@ -10,11 +12,17 @@ const NewsDetailsPage = async ({ params }: { params: Promise<{ newsId: string }>
     const item = await SingleNews({ slug: newsId });
     console.log("single Item", item);
 
+    if (item === undefined) {
+        notFound();
+    }
+
     const date = new Intl.DateTimeFormat("bn-bd", {
         dateStyle: "full",
         timeStyle: "medium",
         timeZone: "Asia/Dhaka",
-    }).format(new Date(item.lastPublished));
+    }).format(new Date(item.lastPublished | item.firstPublished));
+
+
 
     return (
         <div>

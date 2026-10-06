@@ -1,6 +1,7 @@
 "use client";
 
 import { signIn } from '@/lib/auth-client';
+import Link from 'next/link';
 import React from 'react';
 
 const SignInPage = () => {
@@ -34,6 +35,7 @@ const SignInPage = () => {
                     <button type="submit" className="btn bg-[#c10007] text-white mt-4">সাইন ইন করুন</button>
                 </fieldset>
             </form>
+            <p>Forgot Password <Link href="/forgot-password">click here</Link> </p>
         </div>
     );
 };

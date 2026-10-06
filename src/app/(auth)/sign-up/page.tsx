@@ -1,6 +1,6 @@
 "use client";
 
-import { signUp } from "@/lib/auth-client";
+import { signIn, signUp } from "@/lib/auth-client";
 import React from "react";
 
 const SignUpPage = () => {
@@ -20,6 +20,12 @@ const SignUpPage = () => {
         });
         console.log("After submit data", data, error)
     };
+
+    const handleGoogleSignUp = async () => {
+        const data = await signIn.social({
+            provider: "google",
+        })
+    }
 
     return (
         <div className="flex flex-col gap-3 items-center my-5">
@@ -42,6 +48,8 @@ const SignUpPage = () => {
                     <button type="submit" className="btn bg-[#c10007] text-white mt-4">সাইন আপ করুন</button>
                 </fieldset>
             </form>
+
+            <button onClick={handleGoogleSignUp} className="btn">Sign Up with Google</button>
         </div>
     );
 };

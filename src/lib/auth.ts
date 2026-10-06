@@ -30,6 +30,12 @@ export const auth = betterAuth({
         autoSignInAfterVerification: true,
         expiresIn: 7 * 24 * 3600 // 7 days,
     },
+    socialProviders: {
+        google: {
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SICRET as string,
+        }
+    },
     database: mongodbAdapter(db, {
         client,
     }),

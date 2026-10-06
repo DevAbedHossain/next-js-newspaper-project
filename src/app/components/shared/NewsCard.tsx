@@ -16,7 +16,7 @@ const NewsCard = ({ item }: { item: INewsData }) => {
             <Link href={`/article/${item.id}`}>
                 <div className="card bg-base-100 shadow-sm h-full">
                     <figure>
-                        <Image className="w-full h-66 object-cover" src={item.imageUrl} alt={item.imageAlt} width={500} height={500} />
+                        <Image className="w-full h-66 object-cover" src={item.imageUrl} alt={item.title} width={500} height={500} />
                     </figure>
                     <div className="card-body">
                         <span className="text-[#c10007]">{item.category}</span>

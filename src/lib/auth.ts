@@ -13,9 +13,23 @@ const db = client.db("news_24_user");
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const auth = betterAuth({
+    user: {
+        changeEmail: {
+            enabled: true,
+            sendChangeEmailConfirmation: async ({ user, newEmail, url, token }, request) => {
+                void resend.emails.send({
+                    from: 'Acme <onboarding@resend.dev>',
+                    to: user.email,
+                    subject: 'Approve email change',
+                    text: `Click the link to approve the change to ${newEmail}: ${url}`
+                })
+            }
+        }
+    },
     emailAndPassword: {
         enabled: true,
         requireEmailVerification: true,
+        revokeSessionsOnPasswordReset: true,
         sendResetPassword: async ({ user, url, token }, request) => {
             void resend.emails.send({
                 from: 'Acme <onboarding@resend.dev>',

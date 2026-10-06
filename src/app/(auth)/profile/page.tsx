@@ -65,13 +65,14 @@ const ProfilePage = () => {
                                     <p className="mt-1 font-semibold tracking-widest">••••••••••</p>
                                 </div>
 
-                                <button className="btn btn-outline btn-sm">Change Password</button>
+                                <Link href="/change-password"><button className="btn btn-outline btn-sm">Change Password</button></Link>
                             </div>
                         </div>
 
                         {/* Actions */}
                         <div className="mt-6 flex justify-end gap-3">
                             <Link href="/update-profile"><button className="btn btn-outline"> Edit Profile</button></Link>
+                            <Link href="/change-email"><button className="btn btn-outline">Change Email</button></Link>
                         </div>
                     </div>
                 </div>
